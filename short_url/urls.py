@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import CreateUrlAPIView
 
 urlpatterns = [
-    path("urls/", views.urls, name="posts"),
+    path("create/", CreateUrlAPIView.as_view(), name="create_short_url"),
 ]
