@@ -1,8 +1,16 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class Url(models.Model):
-    author = models.ForeignKey("auth.User", on_delete=models.CASCADE)
+    id = models.CharField(
+        max_length=8,
+        primary_key=True,
+        unique=True,
+    )
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     origin_url = models.CharField(max_length=255)
     short_url = models.CharField(max_length=100)
     hits = models.PositiveIntegerField(default=0)
@@ -12,3 +20,4 @@ class Url(models.Model):
 
     class Meta:
         db_table = "url"
+        indexes = [models.Index(fields=["id"])]
