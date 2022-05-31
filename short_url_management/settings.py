@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # my app
     "short_url",
+    "account",
     # third party apps
     "corsheaders",
 ]

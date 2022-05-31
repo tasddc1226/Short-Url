@@ -23,4 +23,6 @@ urlpatterns = [
     path("api/v1/token/verify/", verify_jwt_token),
     path("api/v1/token/refresh/", refresh_jwt_token),
     path("api/v1/short/", include("short_url.urls")),
+    path("api/v1/api-auth/", include("rest_framework.urls")),
+    path("api/v1/user/", include("account.urls")),
 ]
