@@ -6,7 +6,11 @@ from django.http import HttpResponse
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.decorators import api_view, permission_classes, authentication_classes
+from rest_framework.decorators import (
+    api_view,
+    permission_classes,
+    authentication_classes,
+)
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
@@ -52,4 +56,6 @@ class CreateUrlAPIView(APIView):
             )
             return Response(short_url, status=status.HTTP_200_OK)
         else:
-            return Response({"errors": "Invalid url format."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"errors": "Invalid url format."}, status=status.HTTP_400_BAD_REQUEST
+            )
