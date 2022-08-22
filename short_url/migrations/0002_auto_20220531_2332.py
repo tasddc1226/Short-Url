@@ -6,17 +6,19 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('short_url', '0001_initial'),
+        ("short_url", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='url',
-            name='id',
-            field=models.CharField(max_length=8, primary_key=True, serialize=False, unique=True),
+            model_name="url",
+            name="id",
+            field=models.CharField(
+                max_length=8, primary_key=True, serialize=False, unique=True
+            ),
         ),
         migrations.AddIndex(
-            model_name='url',
-            index=models.Index(fields=['id'], name='url_id_d369f8_idx'),
+            model_name="url",
+            index=models.Index(fields=["id"], name="url_id_d369f8_idx"),
         ),
     ]
